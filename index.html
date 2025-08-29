@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>عطر فروشی بامزه من</title>
+  <style>
+    body {
+      font-family: "Vazir", sans-serif;
+      background: #fff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      color: #333;
+    }
+    .container {
+      max-width: 400px;
+      padding: 25px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      border-radius: 20px;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+    }
+    input {
+      width: 80%;
+      padding: 10px;
+      font-size: 1rem;
+      border: 2px solid #ccc;
+      border-radius: 12px;
+      margin-bottom: 15px;
+      outline: none;
+      text-align: center;
+    }
+    button {
+      padding: 12px 25px;
+      background: #ff4d6d;
+      border: none;
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #e63950;
+    }
+    .hidden {
+      display: none;
+    }
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 25px;
+      background: #4CAF50;
+      color: white;
+      text-decoration: none;
+      border-radius: 12px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    a:hover {
+      background: #3e8e41;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- صفحه اول: گرفتن اسم و فامیل -->
+  <div class="container" id="page1">
+    <h1>هی رفیق! 😎</h1>
+    <p>اسم و فامیلتو بهم بده، قول میدم فقط خوش‌آمدگویی کنم 😁</p>
+    <input type="text" id="nameInput" placeholder="اسم و فامیلت...">
+    <br>
+    <button onclick="goToPage2()">بزن بریم 🚀</button>
+  </div>
+
+  <!-- صفحه دوم: معرفی عطر فروشی -->
+  <div class="container hidden" id="page2">
+    <h1 id="welcomeText"></h1>
+    <p>
+      خوش اومدی به دنیای خوشبوها! 🌸  
+      من اینجام تا حالتو با عطرایی که از ایذه میاد، توپ کنم 😏  
+      عطرایی که بهتر از آهنگای تیک‌تاک حالت رو عوض می‌کنن 😍  
+      یه سر بزن به پیج اینستا، دماغت عاشق می‌شه! 😂
+    </p>
+    <a href="https://instagram.com/yourpage" target="_blank">بزن بریم اینستا 📸</a>
+  </div>
+
+  <script>
+    function goToPage2() {
+      const name = document.getElementById("nameInput").value;
+      if (!name.trim()) {
+        alert("هی! اسم و فامیلتو بده دیگه 😁");
+        return;
+      }
+      document.getElementById("page1").classList.add("hidden");
+      document.getElementById("page2").classList.remove("hidden");
+      document.getElementById("welcomeText").innerText = سلام ${name}! خوش اومدی 👋;
+    }
+  </script>
+
+</body>
+</html>
