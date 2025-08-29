@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>عطر فروشی ایذه</title>
+<style>
+    body {
+        font-family: 'Tahoma', sans-serif;
+        background-color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    .container {
+        text-align: center;
+        width: 90%;
+        max-width: 400px;
+        padding: 30px;
+        border: 2px solid #ccc;
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+    input {
+        width: 80%;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+    }
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 8px;
+        border: none;
+        background-color: #ff7f50;
+        color: white;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+    button:hover {
+        background-color: #ff6347;
+    }
+    .hidden {
+        display: none;
+    }
+</style>
+</head>
+<body>
+<div class="container" id="step1">
+    <h2>سلام! 😄</h2>
+    <p>می‌خوام باهات آشنا بشم! اول اسم کوچیکت چیه؟</p>
+    <input type="text" id="firstname" placeholder="اسم کوچیکت رو وارد کن">
+    <p>و فامیلت چیه؟</p>
+    <input type="text" id="lastname" placeholder="فامیل رو وارد کن">
+    <br>
+    <button onclick="nextStep()">بزن بریم 🚀</button>
+</div>
+
+<div class="container hidden" id="step2">
+    <h2>ایول <span id="displayName"></span>! 😎</h2>
+    <p>من یه عطر فروشی تو ایذه دارم! 🛍️<br>
+       آدرس: خیابان فلان، کوچه فلان 🌸<br>
+       بیا یکمی بامزه باهات شوخی کنیم 😜</p>
+    <p>اگر خواستی عطرای ما رو ببینی و بگیری، روی لینک پایین بزن:</p>
+    <a href="https://www.instagram.com/yourpage" target="_blank">
+        <button>رفتن به پیج اینستا 📸</button>
+    </a>
+</div>
+
+<script>
+function nextStep() {
+    const first = document.getElementById('firstname').value.trim();
+    const last = document.getElementById('lastname').value.trim();
+    if(first === '' || last === '') {
+        alert('هی! اسم و فامیل رو باید وارد کنی 😅');
+        return;
+    }
+    document.getElementById('displayName').textContent = first + ' ' + last;
+    document.getElementById('step1').classList.add('hidden');
+    document.getElementById('step2').classList.remove('hidden');
+}
+</script>
+</body>
+</html>
