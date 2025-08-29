@@ -4,33 +4,44 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>عطر فروشی بامزه من</title>
+  
+  <!-- فونت فارسی وزیر -->
+  <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v30.1.0/dist/font-face.css" rel="stylesheet" type="text/css" />
+
   <style>
     body {
       font-family: "Vazir", sans-serif;
       background: #fff;
       margin: 0;
       padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
       text-align: center;
       color: #333;
     }
+
     .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
       max-width: 400px;
+      margin: auto;
       padding: 25px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.1);
       border-radius: 20px;
+      text-align: center;
     }
+
     h1 {
       font-size: 2rem;
       margin-bottom: 15px;
     }
+
     p {
       font-size: 1.1rem;
       margin-bottom: 20px;
     }
+
     input {
       width: 80%;
       padding: 10px;
@@ -41,6 +52,7 @@
       outline: none;
       text-align: center;
     }
+
     button {
       padding: 12px 25px;
       background: #ff4d6d;
@@ -52,12 +64,15 @@
       cursor: pointer;
       transition: 0.3s;
     }
+
     button:hover {
       background: #e63950;
     }
+
     .hidden {
       display: none;
     }
+
     a {
       display: inline-block;
       margin-top: 20px;
@@ -69,6 +84,7 @@
       font-weight: bold;
       transition: 0.3s;
     }
+
     a:hover {
       background: #3e8e41;
     }
@@ -80,18 +96,21 @@
   <div class="container" id="page1">
     <h1>هی رفیق! 😎</h1>
     <p>اسم و فامیلتو بهم بده، قول میدم فقط خوش‌آمدگویی کنم 😁</p>
-    <input type="text" id="nameInput" placeholder="اسم و فامیلت...">
-    <br>
-    <button onclick="goToPage2()">بزن بریم 🚀</button>
+    
+    <form onsubmit="goToPage2(); return false;">
+      <input type="text" id="nameInput" placeholder="اسم و فامیلت...">
+      <br>
+      <button type="submit">بزن بریم 🚀</button>
+    </form>
   </div>
 
   <!-- صفحه دوم: معرفی عطر فروشی -->
   <div class="container hidden" id="page2">
     <h1 id="welcomeText"></h1>
     <p>
-      خوش اومدی به دنیای خوشبوها! 🌸  
-      من اینجام تا حالتو با عطرایی که از ایذه میاد، توپ کنم 😏  
-      عطرایی که بهتر از آهنگای تیک‌تاک حالت رو عوض می‌کنن 😍  
+      خوش اومدی به دنیای خوشبوها! 🌸<br>  
+      من اینجام تا حالتو با عطرایی که از <strong>ایذه</strong> میاد، توپ کنم 😏<br>
+      عطرایی که بهتر از آهنگای تیک‌تاک حالت رو عوض می‌کنن 😍<br>
       یه سر بزن به پیج اینستا، دماغت عاشق می‌شه! 😂
     </p>
     <a href="https://instagram.com/yourpage" target="_blank">بزن بریم اینستا 📸</a>
@@ -99,8 +118,8 @@
 
   <script>
     function goToPage2() {
-      const name = document.getElementById("nameInput").value;
-      if (!name.trim()) {
+      const name = document.getElementById("nameInput").value.trim();
+      if (!name) {
         alert("هی! اسم و فامیلتو بده دیگه 😁");
         return;
       }
